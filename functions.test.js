@@ -1,6 +1,6 @@
 const myModule = require('./functions');
 
-const { capatilize } = myModule;
+const { capatilize, reverseString } = myModule;
 
 test('Capitalize', () => {
   expect(capatilize('odin')).toBe('Odin');
@@ -16,4 +16,16 @@ test('Capitalize trailing spaces', () => {
 
 test('Capitalize number', () => {
   expect(capatilize('1aabc')).toBe('1aabc');
+});
+
+test('Reverse string', () => {
+  expect(reverseString('odin')).toBe('nido');
+});
+
+test('Reverse string with multiple words', () => {
+  expect(reverseString('odin project')).toBe('tcejorp nido');
+});
+
+test('Reverse string spaces at both ends', () => {
+  expect(reverseString('  moon shine  ')).toBe('enihs noom');
 });
