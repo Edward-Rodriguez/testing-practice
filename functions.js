@@ -14,7 +14,16 @@ function reverseString(value) {
   return reversedString;
 }
 
+const Calculator = (() => {
+  const add = (num1, num2) => {
+    const result = num1 + num2;
+    return Number(result);
+  };
+  return { add };
+})();
+
 module.exports = {
   capatilize,
   reverseString,
+  Calculator,
 };
