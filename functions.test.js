@@ -45,3 +45,27 @@ test('Add integer and float', () => {
 test('Add integer and alpha-string', () => {
   expect(Calculator.add(1, 'abc')).toBeNaN();
 });
+
+test('Add two non-numeric strings', () => {
+  expect(Calculator.add('!@#$', 'abc')).toBeNaN();
+});
+
+test('Subtract two numbers', () => {
+  expect(Calculator.subtract(100, 90)).toBe(10);
+});
+
+test('Subtract two floating point numbers', () => {
+  expect(Calculator.subtract(15.4, 90.000003)).toBe(-74.600003);
+});
+
+test('Subtract integer and float', () => {
+  expect(Calculator.subtract(15, 0.005)).toBe(14.995);
+});
+
+test('Subtract integer alpha-string', () => {
+  expect(Calculator.subtract(15, 'abc')).toBeNaN();
+});
+
+test('Subtract two non-numeric strings', () => {
+  expect(Calculator.subtract('!@#$%', 'abc')).toBeNaN();
+});
