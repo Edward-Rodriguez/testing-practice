@@ -30,7 +30,17 @@ const Calculator = (() => {
     return Number(result);
   };
 
-  return { add, subtract, divide };
+  const multiply = (num1, num2) => {
+    const result = num1 * num2;
+    return Number(result);
+  };
+
+  return {
+    add,
+    subtract,
+    divide,
+    multiply,
+  };
 })();
 
 module.exports = {

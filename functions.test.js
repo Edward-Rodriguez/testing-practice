@@ -87,15 +87,15 @@ test('divide two non-numeric values', () => {
 });
 
 test('multiple two integers', () => {
-  expect(Calculator.multiply(10, 3)).toBeCloseTo(3.333);
+  expect(Calculator.multiply(10, 3)).toBe(30);
 });
 
 test('multiply an integer and a float', () => {
-  expect(Calculator.multiply(10, 3.3)).toBeCloseTo(3.03);
+  expect(Calculator.multiply(10, 3.3)).toBeCloseTo(33);
 });
 
 test('multiply two floating point numbers', () => {
-  expect(Calculator.multiply(1.5, 3.5)).toBeCloseTo(0.4286);
+  expect(Calculator.multiply(1.5, 3.5)).toBeCloseTo(5.25);
 });
 
 test('multiply two non-numeric values', () => {
