@@ -1,6 +1,6 @@
 const myModule = require('./functions');
 
-const { capatilize, reverseString, Calculator } = myModule;
+const { capatilize, reverseString, Calculator, ceaserCipher } = myModule;
 
 test('Capitalize', () => {
   expect(capatilize('odin')).toBe('Odin');
@@ -100,4 +100,24 @@ test('multiply two floating point numbers', () => {
 
 test('multiply two non-numeric values', () => {
   expect(Calculator.multiply('!@#$', 'abc')).toBeNaN();
+});
+
+test('cipher lowercase string w/ shift factor 4', () => {
+  expect(ceaserCipher('abcd', 4)).toBe('efgh');
+});
+
+test('cipher string w/ upper & lower case chars, shift factor 3', () => {
+  expect(ceaserCipher('aBcDe', 3)).toBe('dEfGh');
+});
+
+test('cipher string w/ punctuations, shift factor 2', () => {
+  expect(ceaserCipher('?aBcDe!', 2)).toBe('AcDeFh#');
+});
+
+test('cipher string w/ space, shift factor 5', () => {
+  expect(ceaserCipher('Hello World!', 5)).toBe('Mjqqt%\\twqi&');
+});
+
+test('cipher string alphabet wrap around, shift factor 10', () => {
+  expect(ceaserCipher('xyz', 10)).toBe('Mjqqt%\\twqi&');
 });
