@@ -71,7 +71,7 @@ test('Subtract two non-numeric strings', () => {
 });
 
 test('divide two integers', () => {
-  expect(Calculator.divide(10, 3)).toBeCloseTo(3.3);
+  expect(Calculator.divide(10, 3)).toBeCloseTo(3.333);
 });
 
 test('divide an integer and a float', () => {
@@ -84,4 +84,20 @@ test('divide two floating point numbers', () => {
 
 test('divide two non-numeric values', () => {
   expect(Calculator.divide('!@#$', 'abc')).toBeNaN();
+});
+
+test('multiple two integers', () => {
+  expect(Calculator.multiply(10, 3)).toBeCloseTo(3.333);
+});
+
+test('multiply an integer and a float', () => {
+  expect(Calculator.multiply(10, 3.3)).toBeCloseTo(3.03);
+});
+
+test('multiply two floating point numbers', () => {
+  expect(Calculator.multiply(1.5, 3.5)).toBeCloseTo(0.4286);
+});
+
+test('multiply two non-numeric values', () => {
+  expect(Calculator.multiply('!@#$', 'abc')).toBeNaN();
 });
