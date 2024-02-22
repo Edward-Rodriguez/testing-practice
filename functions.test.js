@@ -69,3 +69,19 @@ test('Subtract integer alpha-string', () => {
 test('Subtract two non-numeric strings', () => {
   expect(Calculator.subtract('!@#$%', 'abc')).toBeNaN();
 });
+
+test('divide two integers', () => {
+  expect(Calculator.divide(10, 3)).toBeCloseTo(3.3);
+});
+
+test('divide an integer and a float', () => {
+  expect(Calculator.divide(10, 3.3)).toBeCloseTo(3.03);
+});
+
+test('divide two floating point numbers', () => {
+  expect(Calculator.divide(1.5, 3.5)).toBeCloseTo(0.4286);
+});
+
+test('divide two non-numeric values', () => {
+  expect(Calculator.divide('!@#$', 'abc')).toBeNaN();
+});
