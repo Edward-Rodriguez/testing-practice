@@ -1,6 +1,6 @@
 const myModule = require('./functions');
 
-const { capatilize, reverseString, Calculator, ceaserCipher } = myModule;
+const { capatilize, reverseString, ceasarCipher, Calculator } = myModule;
 
 test('Capitalize', () => {
   expect(capatilize('odin')).toBe('Odin');
@@ -102,22 +102,24 @@ test('multiply two non-numeric values', () => {
   expect(Calculator.multiply('!@#$', 'abc')).toBeNaN();
 });
 
-test('cipher lowercase string w/ shift factor 4', () => {
-  expect(ceaserCipher('abcd', 4)).toBe('efgh');
-});
+describe('The ceasarCipher method', () => {
+  test('lowercase string w/ shift factor 4', () => {
+    expect(ceasarCipher('abcd', 4)).toBe('efgh');
+  });
 
-test('cipher string w/ upper & lower case chars, shift factor 3', () => {
-  expect(ceaserCipher('aBcDe', 3)).toBe('dEfGh');
-});
+  test('string w/ upper & lower case chars, shift factor 3', () => {
+    expect(ceasarCipher('aBcDe', 3)).toBe('dEfGh');
+  });
 
-test('cipher string w/ punctuations, shift factor 2', () => {
-  expect(ceaserCipher('?aBcDe!', 2)).toBe('AcDeFh#');
-});
+  test('string w/ punctuations, shift factor 2', () => {
+    expect(ceasarCipher('?aBcDe!', 2)).toBe('AcDeFg#');
+  });
 
-test('cipher string w/ space, shift factor 5', () => {
-  expect(ceaserCipher('Hello World!', 5)).toBe('Mjqqt%\\twqi&');
-});
+  test('string w/ space, shift factor 5', () => {
+    expect(ceasarCipher('Hello World!', 5)).toBe('Mjqqt%\\twqi&');
+  });
 
-test('cipher string alphabet wrap around, shift factor 10', () => {
-  expect(ceaserCipher('xyz', 10)).toBe('Mjqqt%\\twqi&');
+  test('string alphabet wrap around, shift factor 10', () => {
+    expect(ceasarCipher('xyz', 10)).toBe('#$%');
+  });
 });
