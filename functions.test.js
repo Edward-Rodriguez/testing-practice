@@ -1,6 +1,7 @@
 const myModule = require('./functions');
 
-const { capatilize, reverseString, ceasarCipher, Calculator } = myModule;
+const { capatilize, reverseString, ceasarCipher, analyzeArray, Calculator } =
+  myModule;
 
 test('Capitalize', () => {
   expect(capatilize('odin')).toBe('Odin');
@@ -102,7 +103,7 @@ test('multiply two non-numeric values', () => {
   expect(Calculator.multiply('!@#$', 'abc')).toBeNaN();
 });
 
-describe('The ceasarCipher method', () => {
+describe('The ceasarCipher function', () => {
   test('lowercase string w/ shift factor 4', () => {
     expect(ceasarCipher('abcd', 4)).toBe('efgh');
   });
@@ -121,5 +122,29 @@ describe('The ceasarCipher method', () => {
 
   test('string alphabet wrap around, shift factor 10', () => {
     expect(ceasarCipher('xyz', 10)).toBe('#$%');
+  });
+});
+
+describe('The analyzeArray function', () => {
+  test('average, min, max, length', () => {
+    expect(analyzeArray([1, 8, 3, 4, 2, 6])).toBe({
+      average: 4,
+      min: 1,
+      max: 8,
+      length: 6,
+    });
+  });
+
+  test('empty array', () => {
+    expect(analyzeArray([])).toBeNull();
+  });
+
+  test('array with alphanumeric values (only process numeric values)', () => {
+    expect(analyzeArray(['a', 1, 'c', 2])).toBeNull({
+      average: 1.5,
+      min: 1,
+      max: 2,
+      length: 2,
+    });
   });
 });
