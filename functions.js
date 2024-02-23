@@ -62,9 +62,48 @@ function ceasarCipher(string, shiftFactor) {
   return encryptedString;
 }
 
+function analyzeArray(arr) {
+  if (arr.length === 0) return null;
+  let average = null;
+  let min = null;
+  let max = null;
+  let length = null;
+  let sum = 0;
+
+  arr.forEach((elem) => {
+    if (typeof elem === 'number') {
+      if (!min) {
+        min = elem;
+      }
+      if (!max) {
+        max = elem;
+      } else {
+        if (elem < min) {
+          min = elem;
+        }
+        if (elem > max) {
+          max = elem;
+        }
+      }
+      sum += elem;
+      length += 1;
+    }
+  });
+
+  average = length ? sum / length : null;
+
+  return {
+    average,
+    min,
+    max,
+    length,
+  };
+}
+
 module.exports = {
   capatilize,
   reverseString,
   Calculator,
   ceasarCipher,
+  analyzeArray,
 };

@@ -127,7 +127,7 @@ describe('The ceasarCipher function', () => {
 
 describe('The analyzeArray function', () => {
   test('average, min, max, length', () => {
-    expect(analyzeArray([1, 8, 3, 4, 2, 6])).toBe({
+    expect(analyzeArray([1, 8, 3, 4, 2, 6])).toEqual({
       average: 4,
       min: 1,
       max: 8,
@@ -140,7 +140,7 @@ describe('The analyzeArray function', () => {
   });
 
   test('array with alphanumeric values (only process numeric values)', () => {
-    expect(analyzeArray(['a', 1, 'c', 2])).toBeNull({
+    expect(analyzeArray(['a', 1, 'c', 2])).toEqual({
       average: 1.5,
       min: 1,
       max: 2,
